@@ -1,0 +1,31 @@
+body {
+  font-family: Arial;
+  padding:20px
+}
+
+#products {
+display:flex;
+gap:20px;
+flex-wrap:wrap
+}
+
+.product {
+  border:1px solid gray;
+  padding:10px;
+  width:200px
+}
+
+.product img {
+width:100%
+}
+
+#cart {
+margin-top:20px
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+  
