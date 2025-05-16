@@ -14,7 +14,7 @@ const apiData = [
         id: 2,
         name: "Tea",
         category: "Beverages",
-        image_url: "tea.jpg", 
+        image_url: "tea.jpg",
         varieties: [
           { id: 201, name: "Small", price: 30 },
           { id: 202, name: "Medium", price: 60 },
@@ -48,7 +48,49 @@ const apiData = [
     }
   }
   
+  function addToCart(id) {
+    let p = apiData.find(x => x.id === id)
+    let sel = document.getElementById(`variety-${id}`)
+    let vId = parseInt(sel.value)
+    let v = p.varieties.find(x => x.id === vId)
+    let item = {
+      name: p.name + ' (' + v.name + ')',
+      price: v.price
+    }
+    cart.push(item)
+    updateCart()
+  }
   
+  function updateCart() {
+    let cartBox = document.getElementById('cart')
+    let totalBox = document.getElementById('total')
+    cartBox.innerHTML = ''
+    let sum = 0
+    for (let i = 0; i < cart.length; i++) {
+      let d = document.createElement('div')
+      d.textContent = cart[i].name + ' - ₹' + cart[i].price
+      cartBox.appendChild(d)
+      sum += cart[i].price
+    }
+    totalBox.textContent = 'Total: ₹' + sum
+  }
+  
+  /*document.getElementById('sort').addEventListener('change', function () {
+    let val = this.value
+    let arr = [...apiData]
+    if (val === 'low') {
+      arr.sort((a, b) => a.varieties[0].price - b.varieties[0].price)
+    } else if (val === 'high') {
+      arr.sort((a, b) => b.varieties[0].price - a.varieties[0].price)
+    }
+    displayProducts(arr)
+  })
+  
+  document.getElementById('search').addEventListener('input', function () {
+    let text = this.value.toLowerCase()
+    let res = apiData.filter(p => p.name.toLowerCase().includes(text))
+    displayProducts(res)
+  })*/
   
   displayProducts(apiData)
   
