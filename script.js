@@ -75,7 +75,7 @@ const apiData = [
     totalBox.textContent = 'Total: ₹' + sum
   }
   
-  /*document.getElementById('sort').addEventListener('change', function () {
+  /document.getElementById('sort').addEventListener('change', function () {
     let val = this.value
     let arr = [...apiData]
     if (val === 'low') {
@@ -90,7 +90,7 @@ const apiData = [
     let text = this.value.toLowerCase()
     let res = apiData.filter(p => p.name.toLowerCase().includes(text))
     displayProducts(res)
-  })*/
+  })
   
   displayProducts(apiData)
   
